@@ -39,8 +39,6 @@ video{
 }
 body{
   font-family: "Archivo Black", sans-serif;
-  background: #f7f7f7;
-  background: linear-gradient(167deg, rgba(247, 247, 247, 1) 31%, rgba(255, 255, 255, 1) 50%, rgba(242, 199, 191, 1) 89%);
 }
 /* Hero Begin */
 .hero{
@@ -335,6 +333,9 @@ h4{
   color: black;
   margin-top: 50px;
   font-size: 2rem;
+}
+#activities h1{
+  margin-bottom: 40px;
 }
 
 .section-title {

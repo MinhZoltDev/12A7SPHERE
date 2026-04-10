@@ -5,7 +5,6 @@
   /*Color mode HSL(hue, saturation, lightness)*/
   --first-color: hsl(220, 100%, 62%);
   --title-color: hsl(220, 8%, 12%);
-  --text-color: hsl(220, 8%, 56%);
   --body-color: hsl(220, 24%, 94%);
   --container-color: hsl(220, 48%, 96%);
 
@@ -15,6 +14,7 @@
   --second-font: "Unbounded", sans-serif;
   --h3-font-size: 1rem;
   --normal-font-size: .938rem;
+  --text-main: white;
 }
 *{
     padding: 0;
@@ -149,4 +149,125 @@ body{
 
 .nav-item.active {
   color: #56d4fa;
+}
+/* Main thing */
+.about-pro {
+  font-family: "Lobster", sans-serif;
+  background: #fff;
+  color: #111;
+  padding: 100px 5%;
+  overflow: hidden;
+}
+.about-pro p{
+    font-size: 25px;
+}
+
+/* TITLE SIÊU TO */
+.big-title {
+  font-size: clamp(60px, 10vw, 140px);
+  font-weight: 900;
+  line-height: 0.9;
+  margin-bottom: 80px;
+}
+
+.big-title span {
+  color: #6fdaed; /* xanh giống mẫu */
+}
+
+/* GRID */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+/* TEXT INFO */
+.about-info {
+  grid-column: 1 / 3;
+  font-size: 18px;
+}
+
+.about-info p {
+  margin-bottom: 10px;
+}
+
+/* ICON */
+.about-info i {
+  margin-right: 10px;
+}
+
+/* IMAGE */
+.img-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* VỊ TRÍ PHÁ CÁCH */
+.img1 {
+  grid-column: 3 / 6;
+  grid-row: 1 / 3;
+  transform: translateY(-40px);
+}
+
+.img2 {
+  grid-column: 1 / 4;
+  grid-row: 3 / 5;
+  transform: translateX(-40px);
+}
+
+/* BIG TEXT */
+.big-text {
+  grid-column: 4 / 7;
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1;
+  color: #3bdbff;
+}
+
+/* DESC */
+.about-desc {
+  grid-column: 1 / 4;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* GLITCH LỆCH ẢNH */
+.img-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+  mix-blend-mode: multiply;
+}
+
+/* HOVER LỆCH */
+.img-box:hover {
+  transform: scale(1.03) rotate(1deg);
+  transition: 0.4s;
+}
+/* Footer */
+footer{
+  display: flex;
+  flex-direction: column;  
+  align-items: center;      
+  justify-content: center;
+  gap: 10px;                
+  padding: 20px;
+  background: black;
+  color: white;
+  text-align: center;
+  font-size: 2rem;
+  padding-bottom: 100px;
+  padding-top: 40px;
+  font-family: "Lobster", sans-serif;
+}
+.copyright{
+  opacity: 0.5;
 }

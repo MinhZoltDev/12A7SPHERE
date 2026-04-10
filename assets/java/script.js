@@ -88,9 +88,11 @@ window.onclick = function(event) {
 // Video
 const video = document.getElementById("myVideo");
 
-video.addEventListener("ended", () => {
-  setTimeout(() => {
-    video.currentTime = 0; // quay về đầu
-    video.play();          // phát lại
-  }, 5000); // đợi 5 giây
-});
+if (video) {
+  video.addEventListener("ended", () => {
+    setTimeout(() => {
+      video.currentTime = 0;
+      video.play();
+    }, 5000);
+  });
+}
