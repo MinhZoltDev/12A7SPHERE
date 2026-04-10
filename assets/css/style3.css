@@ -150,6 +150,78 @@ body{
 .nav-item.active {
   color: #83e257;
 }
+/* MEMBER MAIN */
+/* Container chứa toàn bộ danh sách */
+.member-container {
+    margin-top: 100px;
+    padding: 60px 5%;
+    background-color: #fff;
+    text-align: center;
+}
+.member-container span{
+    font-family: "Lobster", sans-serif;
+}
+/* Cấu hình Grid 4 cột cố định trên màn hình lớn */
+.member-grid {
+    margin-top: 500px ;
+    display: grid;
+    /* Chia làm 4 cột bằng nhau */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px;
+    max-width: 1200px; /* Giới hạn chiều rộng để không bị quá loãng */
+    margin: 0 auto;    /* Căn giữa toàn bộ grid */
+    align-items: start;
+}
+
+/* Hiệu ứng so le cho hàng 4 người */
+/* Đẩy các thẻ ở vị trí thứ 2 và thứ 4 xuống thấp hơn một chút */
+.member-card:nth-child(4n+2),
+.member-card:nth-child(4n+4) {
+    margin-top: 60px;
+}
+
+/* Hiệu ứng khi di chuột vào (phóng to và nghiêng) */
+.member-card {
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-align: center;
+}
+
+.member-card:hover {
+    /* Phóng to 1.1 lần và nghiêng nhẹ 3 độ */
+    transform: scale(1.1) rotate(3deg);
+    z-index: 10; /* Đảm bảo khi phóng to không bị đè bởi thẻ khác */
+}
+
+/* Tùy chỉnh ảnh để đồng nhất kích thước */
+.member-img-wrapper {
+    width: 100%;
+    aspect-ratio: 3/4; /* Giữ tỷ lệ ảnh luôn là 3:4 cho đều */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+    margin-bottom: 15px;
+}
+
+.member-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hỗ trợ hiển thị trên điện thoại (tự chuyển về 2 cột hoặc 1 cột) */
+@media (max-width: 992px) {
+    .member-grid {
+        margin-top: 100px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .member-card:nth-child(even) {
+        margin-top: 40px;
+    }
+    .member-card:nth-child(odd) {
+        margin-top: 0;
+    }
+}
 /* FOOTER */
 footer{
   display: flex;
