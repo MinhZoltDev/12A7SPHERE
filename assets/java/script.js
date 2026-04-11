@@ -96,3 +96,16 @@ if (video) {
     }, 5000);
   });
 }
+// Contact cho trang contact:))
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const name = document.getElementById('name').value;
+    
+    if(name) {
+        alert(`Cảm ơn ${name}! Lá thư của bạn đã được gửi tới 12A7.Mình sẽ phản hồi bạn sớm nhất có thể.Chúc bạn một ngày đẹp trời ☺️`);
+        this.reset();
+    } else {
+        alert('Chưa điền mà đã nhấn giỡn mặt hả ní, điền đi 😑 ');
+    }
+});

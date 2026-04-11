@@ -150,6 +150,118 @@ body{
 .nav-item.active {
   color: #eda509;
 }
+/* Contact Form */
+.letter-container{
+  background-color: transparent; /* Màu nền xanh xám như trong ảnh */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Lobster', Courier, monospace;
+}
+.letter-paper {
+    background-color: white;
+    width: 1000px;
+    padding: 50px;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
+    position: relative;
+}
+
+.title {
+    text-align: center;
+    letter-spacing: 3px;
+    color: #3e4b5e;
+    margin-bottom: 30px;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.input-group {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #555;
+    margin-right: 10px;
+    flex-shrink: 0;
+    font-size: 2rem;
+}
+
+/* Tạo dòng kẻ cho input và textarea */
+input, textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    background: transparent;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+    color: #2c3e50;
+    line-height: 30px;
+}
+
+/* Kỹ thuật tạo dòng kẻ ngang cho input và textarea */
+input, .message-group textarea {
+    background-image: linear-gradient(to bottom, transparent 29px, #d1d1d1 1px);
+    background-size: 100% 30px;
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+}
+
+.footer-form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.stamp-container {
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Hiệu ứng lượn sóng cạnh nút SEND giống con dấu */
+.stamp-container::after {
+    content: "~~~~";
+    position: absolute;
+    right: -25px;
+    color: #ccc;
+    font-size: 20px;
+}
+
+.stamp-icon {
+    font-size: 24px;
+    color: #a7b5d0;
+    transform: rotate(-45deg);
+}
+
+.send-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #3e4b5e;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: transform 0.2s;
+}
+
+.send-btn:hover {
+    transform: scale(1.1);
+}
 /* Footer */
 footer{
   display: flex;

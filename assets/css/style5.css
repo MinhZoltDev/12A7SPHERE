@@ -150,6 +150,44 @@ body{
 .nav-item.active {
   color: #b97adf;
 }
+/* Inf start */
+#act-infor{
+  font-family: "Lobster",sans-serif;
+  font-size: 2.4rem;
+  padding: 30px;
+}
+.first{
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.up{
+  background: linear-gradient(90deg, #fff, #c536f4, #e46bf4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display:inline-block;
+  font-size: clamp(58px, 10vw, 120px);
+  filter: drop-shadow(2px 4px 6px black);
+}
+
+.down{
+  color:white;
+  display:inline-block;
+  text-shadow: 1px 2px 3px black;
+  font-size: clamp(20px, 3vw, 29px);
+  margin-top:10px;
+}
+/* Main ACt Begin */
+.main-act{
+
+}
+.main-act-img img{
+  height: 100%;
+  width: 100%;
+}
 /* FOOTER */
 footer{
   display: flex;
