@@ -1,0 +1,153 @@
+/* --- 1. Cấu hình chung cho mọi màn hình --- */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- 2. Màn hình Tablet (Dưới 1024px) --- */
+@media (max-width: 1024px) {
+    .letter-paper {
+        width: 80%; /* Form liên hệ co giãn theo màn hình */
+        padding: 30px;
+    }
+    
+    /* Chỉnh lại layout cho phần thành viên (nếu dùng grid) */
+    .member-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 cột cho tablet */
+    }
+}
+
+/* --- 3. Màn hình Mobile lớn / iPad Portrait (Dưới 768px) --- */
+@media (max-width: 768px) {
+    .letter-paper {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 1.2rem;
+    }
+
+    /* Ẩn bớt các hiệu ứng rườm rà để tập trung nội dung */
+    .stamp-container::after {
+        display: none; 
+    }
+
+    .member-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 cột cho điện thoại lớn */
+    }
+
+    /* Menu điều hướng (nếu có) nên chuyển sang dạng dọc hoặc ẩn */
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- 4. Màn hình Mobile nhỏ (Dưới 480px) --- */
+@media (max-width: 480px) {
+    .input-group {
+        flex-direction: column; /* Nhãn và ô nhập xếp chồng lên nhau */
+        align-items: flex-start;
+    }
+
+    .input-group label {
+        margin-bottom: 5px;
+        font-size: 0.8rem;
+    }
+
+    input, .message-group textarea {
+        background-size: 100% 25px; /* Thu nhỏ khoảng cách dòng kẻ */
+        line-height: 25px;
+    }
+
+    .member-grid {
+        grid-template-columns: 1fr; /* 1 cột duy nhất cho điện thoại nhỏ */
+    }
+
+    .footer-form {
+        justify-content: center;
+        flex-direction: column-reverse;
+        gap: 20px;
+    }
+}
+
+/* --- 5. Màn hình cực lớn (Monitor trên 1440px) --- */
+@media (min-width: 1440px) {
+    .letter-container {
+        transform: scale(1.2); /* Phóng to một chút để không bị lọt thỏm */
+    }
+}
+/* Container chính chứa tờ giấy */
+.letter-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px; /* Tạo khoảng trống để không bị dính sát mép điện thoại */
+    box-sizing: border-box;
+}
+
+/* Tờ giấy viết thư */
+.letter-paper {
+    background-color: white;
+    width: 100%;
+    max-width: 500px; /* Trên máy tính nó chỉ rộng tối đa 500px */
+    min-width: 300px; /* Trên điện thoại nhỏ nhất nó vẫn giữ form */
+    padding: 30px;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
+    position: relative;
+    box-sizing: border-box; /* Quan trọng để padding không làm tăng chiều rộng */
+}
+
+/* Xử lý phần Input để không bị đẩy ra ngoài */
+.input-group {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group label {
+    white-space: nowrap; /* Không cho chữ nhãn bị xuống dòng */
+    margin-right: 10px;
+}
+
+input, textarea {
+    flex: 1; /* Để input chiếm hết phần còn lại của hàng */
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+    /* Dòng kẻ */
+    background-image: linear-gradient(to bottom, transparent 29px, #e0e0e0 1px);
+    background-size: 100% 30px;
+    line-height: 30px;
+}
+
+/* Tablet và Di động */
+@media (max-width: 600px) {
+    .letter-paper {
+        padding: 20px 15px; /* Giảm padding khi màn hình nhỏ */
+    }
+    
+    .title {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .input-group {
+        flex-direction: column; /* Chuyển thành hàng dọc trên điện thoại */
+        align-items: flex-start;
+    }
+
+    .input-group label {
+        margin-bottom: 5px;
+    }
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Ngăn chặn cuộn ngang gây lỗi giao diện */
+    background-color: transparent; /* Màu nền chủ đạo */
+}
