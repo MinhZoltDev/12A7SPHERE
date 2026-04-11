@@ -1,189 +1,131 @@
-/* --- 1. Cấu hình chung cho mọi màn hình --- */
-img {
-    max-width: 100%;
-    height: auto;
-}
+/* FILE: responsive.css 
+   FIX TOÀN BỘ LỖI ẢNH TRÀN VÀ BỐ CỤC TRANG CHỦ
+*/
 
-/* --- 2. Màn hình Tablet (Dưới 1024px) --- */
-@media (max-width: 1024px) {
-    .letter-paper {
-        width: 80%; /* Form liên hệ co giãn theo màn hình */
-        padding: 30px;
-    }
-    
-    /* Chỉnh lại layout cho phần thành viên (nếu dùng grid) */
-    .member-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 cột cho tablet */
-    }
-}
-
-/* --- 3. Màn hình Mobile lớn / iPad Portrait (Dưới 768px) --- */
-@media (max-width: 768px) {
-    .letter-paper {
-        width: 90%;
-        padding: 20px;
-    }
-
-    .title {
-        font-size: 1.2rem;
-    }
-
-    /* Ẩn bớt các hiệu ứng rườm rà để tập trung nội dung */
-    .stamp-container::after {
-        display: none; 
-    }
-
-    .member-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 cột cho điện thoại lớn */
-    }
-
-    /* Menu điều hướng (nếu có) nên chuyển sang dạng dọc hoặc ẩn */
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-}
-
-/* --- 4. Màn hình Mobile nhỏ (Dưới 480px) --- */
-@media (max-width: 480px) {
-    .input-group {
-        flex-direction: column; /* Nhãn và ô nhập xếp chồng lên nhau */
-        align-items: flex-start;
-    }
-
-    .input-group label {
-        margin-bottom: 5px;
-        font-size: 0.8rem;
-    }
-
-    input, .message-group textarea {
-        background-size: 100% 25px; /* Thu nhỏ khoảng cách dòng kẻ */
-        line-height: 25px;
-    }
-
-    .member-grid {
-        grid-template-columns: 1fr; /* 1 cột duy nhất cho điện thoại nhỏ */
-    }
-
-    .footer-form {
-        justify-content: center;
-        flex-direction: column-reverse;
-        gap: 20px;
-    }
-}
-
-/* --- 5. Màn hình cực lớn (Monitor trên 1440px) --- */
-@media (min-width: 1440px) {
-    .letter-container {
-        transform: scale(1.4); /* Phóng to một chút để không bị lọt thỏm */
-    }
-}
-/* Container chính chứa tờ giấy */
-.letter-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 20px; /* Tạo khoảng trống để không bị dính sát mép điện thoại */
-    box-sizing: border-box;
-}
-
-/* Tờ giấy viết thư */
-.letter-paper {
-    background-color: white;
-    width: 100%;
-    max-width: 500px; /* Trên máy tính nó chỉ rộng tối đa 500px */
-    min-width: 300px; /* Trên điện thoại nhỏ nhất nó vẫn giữ form */
-    padding: 30px;
-    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
-    position: relative;
-    box-sizing: border-box; /* Quan trọng để padding không làm tăng chiều rộng */
-}
-
-/* Xử lý phần Input để không bị đẩy ra ngoài */
-.input-group {
-    display: flex;
-    align-items: flex-end;
-    margin-bottom: 20px;
-    width: 100%;
-}
-
-.input-group label {
-    white-space: nowrap; /* Không cho chữ nhãn bị xuống dòng */
-    margin-right: 10px;
-}
-
-input, textarea {
-    flex: 1; /* Để input chiếm hết phần còn lại của hàng */
-    border: none;
-    outline: none;
-    background: transparent;
-    width: 100%;
-    /* Dòng kẻ */
-    background-image: linear-gradient(to bottom, transparent 29px, #e0e0e0 1px);
-    background-size: 100% 30px;
-    line-height: 30px;
-}
-
-/* Tablet và Di động */
-@media (max-width: 600px) {
-    .letter-paper {
-        padding: 20px 15px; /* Giảm padding khi màn hình nhỏ */
-    }
-    
-    .title {
-        font-size: 1.2rem;
-        margin-bottom: 20px;
-    }
-
-    .input-group {
-        flex-direction: column; /* Chuyển thành hàng dọc trên điện thoại */
-        align-items: flex-start;
-    }
-
-    .input-group label {
-        margin-bottom: 5px;
-    }
-}
+/* --- 0. Khóa lỗi tràn ngang tuyệt đối --- */
 html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
     margin: 0;
     padding: 0;
-    width: 100%;
-    overflow-x: hidden; /* Ngăn chặn cuộn ngang gây lỗi giao diện */
-    background-color: transparent; /* Màu nền chủ đạo */
-}
-/* --- Tùy chỉnh riêng cho nội dung chữ trên Mobile (Dưới 768px) --- */
-@media (max-width: 768px) {
-    /* Tiêu đề chính (Ví dụ: Giới thiệu về chúng tôi) */
-    h1 {
-        font-size: 1.8rem !important; /* Giảm xuống cỡ vừa phải */
-        line-height: 1.3;
-    }
-
-    /* Các tiêu đề phụ */
-    h2 {
-        font-size: 1.5rem !important;
-    }
-
-    /* Nội dung văn bản */
-    p, li, span {
-        font-size: 1rem !important; /* Cỡ chữ tiêu chuẩn cho điện thoại, dễ đọc */
-        line-height: 1.6; /* Tăng khoảng cách dòng để không bị dính chữ */
-        text-align: justify; /* Căn đều hai bên cho chuyên nghiệp */
-    }
-
-    /* Nếu bạn có các đoạn trích dẫn hoặc giới thiệu ngắn */
-    .intro-text {
-        font-size: 1.1rem !important;
-    }
 }
 
-/* --- Dành cho điện thoại màn hình rất nhỏ (Dưới 480px) --- */
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.5rem !important;
+* {
+    box-sizing: border-box !important;
+}
+
+/* --- 1. CÂN BẰNG HÌNH ẢNH (Quan trọng nhất) --- */
+img, video {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+/* Fix ảnh trong phần Hero/Banner */
+.hero video, .hero img {
+    width: 100% !important;
+    max-height: 50vh !important; /* Không cho ảnh/video chiếm quá nửa màn hình điện thoại */
+    object-fit: cover;
+}
+
+/* Fix lỗi ảnh so sánh (Before/After) */
+#conc {
+    width: 95% !important;
+    max-width: 800px;
+    height: 250px !important; /* Giảm chiều cao trên mobile để không bị dài quá */
+    margin: 20px auto !important;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#conc img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Ép ảnh lấp đầy khung mà không bị méo */
+}
+
+/* --- 2. NHÓM THIẾT BỊ NHỎ (iPhone, Samsung, iPad) --- */
+@media (max-width: 1024px) {
+    
+    /* Chỉnh Header gọn lại */
+    #nav {
+        padding: 10px 20px !important;
+        position: fixed;
+        width: 100%;
+        background: rgba(0,0,0,0.8);
+        z-index: 999;
     }
 
-    p {
-        font-size: 0.95rem !important; /* Nhỏ hơn một chút để không chiếm quá nhiều màn hình */
+    /* CHỈNH CỠ CHỮ: 14px - 18px */
+    .banner-text {
+        position: relative !important;
+        padding: 80px 15px 20px !important; /* Tránh bị Header đè */
+        text-align: center !important;
     }
+
+    .banner-text h1, .up {
+        font-size: 18px !important;
+        line-height: 1.4 !important;
+        color: white !important;
+        background: none !important;
+        -webkit-text-fill-color: initial !important;
+    }
+
+    .banner-text p, .down, p, span, a {
+        font-size: 14px !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Fix các khối nội dung bị chồng chéo */
+    section {
+        padding: 20px 10px !important;
+        display: block !important; /* Chuyển từ flex sang block để các ảnh xếp chồng lên nhau */
+    }
+
+    /* Cân bằng các nút bấm */
+    .btn, button {
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+        width: auto !important;
+        display: inline-block;
+    }
+
+    /* Footer gọn gàng */
+    footer {
+        padding: 20px !important;
+    }
+
+    .footer-nav {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important; /* Chia 2 cột cho menu dưới chân trang */
+        gap: 10px !important;
+    }
+
+    .footer-nav a {
+        font-size: 13px !important;
+        padding: 5px !important;
+    }
+}
+
+/* --- 3. NHÓM MÀN HÌNH LỚN (Desktop/TV) --- */
+@media (min-width: 1025px) {
+    .banner-text h1 {
+        font-size: clamp(5rem, 8vw, 10rem) !important;
+    }
+    
+    .banner-text p {
+        font-size: clamp(2rem, 2.5vw, 3rem) !important;
+    }
+
+    #conc {
+        height: 500px !important; /* Laptop thì cho to ra nhìn mới đẹp */
+    }
+}
+
+/* --- 4. Fix lỗi Layout cụ thể trong ảnh bạn gửi --- */
+.img-box, .main-act-img {
+    width: 100% !important;
+    margin: 10px 0 !important;
+    transform: none !important; /* Bỏ các hiệu ứng xoay nghiêng gây tràn màn hình trên mobile */
 }
